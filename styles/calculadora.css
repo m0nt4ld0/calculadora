@@ -1,0 +1,40 @@
+:root {
+    --claro: #ddd;
+    --gris: #ccc;
+    --oscuro: #111;
+}
+
+/* ==== FORMULARIO ==== */
+
+.calculadora {
+    border: 1px solid var(--oscuro);
+    border-radius: 5%;
+    max-width: 180px;
+    padding: 5px;
+}
+
+.calculadora #visor {
+    text-align: right;
+    padding-right: 5px;
+    font-size: 24px;
+    max-width: 165px;
+}
+
+/* ==== BOTONES ==== */
+
+.calculadora .btn-valor {
+    background-color: var(--oscuro);
+    color: var(--claro);
+    border: none;
+    border-radius: 100%;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.calculadora .btn-operacion {
+    border-radius: 100%;
+    border: none;
+    background-color: var(--gris);
+    width: 2.5rem;
+    height: 2.5rem;
+}
