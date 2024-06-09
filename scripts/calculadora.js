@@ -23,6 +23,7 @@
 */
 
 /* ===== Definiciones de variables y constantes ===== */
+
 const VALORES = document.querySelectorAll('.btn-valor');
 const OPERACIONES = document.querySelectorAll('.btn-operacion');
 const VISOR = document.getElementById('visor');
@@ -42,21 +43,25 @@ VALORES.forEach(valor => {
 
 OPERACIONES.forEach(operacion => {
     operacion.addEventListener('click', () => {
-        VISOR.value = '';
-        if(operacion.value == "=") {
-            calcular();
-            gFlag = 0;
-        }
-        if(operacion.value != ",") {
-            gFlag = 1;
-            gOperacion = operacion.value;
-        }
-        if(operacion.value == "AC") {
-            limpiar();
-        }
-        if(operacion.value == "+/-") {
-            cambiarSigno();
-        }
+        switch(operacion.value) {
+            case "=":
+                VISOR.value = '';
+                calcular();
+                gFlag = 0;
+                break;
+            case ",":
+                    VISOR.value += ',';
+                break;
+            case "+/-":
+                cambiarSigno();
+                break;
+            case "AC": // Ver
+                limpiar();
+            default:
+                gFlag = 1;
+                gOperacion = operacion.value;
+                VISOR.value = '';
+       }
     });
 });
 
@@ -92,10 +97,8 @@ function limpiar() {
 }
 
 function cambiarSigno() {
-    //console.log("VISOR.value: " + VISOR.value+ " ,gNumbers[0] " + gNumbers[0] + ", gNumbers[1] " + gNumbers[1]);
     let aux = parseInt(VISOR.value);
-    //console.log("aux antes: " + aux);
-    aux*=(-1);
-    //console.log("aux desp: " + aux);
-    VISOR.value=aux;
+    aux *= (-1);
+    VISOR.value = aux;
+    gNumbers[0] = aux;
 }
