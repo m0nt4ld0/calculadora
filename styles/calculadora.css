@@ -20,6 +20,12 @@
     max-width: 165px;
 }
 
+/* ==== VISOR ==== */
+#visor {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
 /* ==== BOTONES ==== */
 
 .calculadora .btn-valor {
